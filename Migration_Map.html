@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Haripada's Migration Path</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <style>
+    #map { height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script>
+    // Initialize map
+    var map = L.map('map').setView([22.5, 89.5], 5);
+
+    // Satellite tile layer
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Define migration path coordinates
+    var path = [
+      [23.55, 90.32],  // Bikrampur, Bangladesh
+      [22.57, 88.36],  // Sealdah, Kolkata
+      [23.38, 88.62],  // Makeshift School (near Ranaghat)
+      [22.00, 88.50],  // Forest Settlement (Sundarbans)
+      [21.5, 87.5],    // Wandering (Jungle belt)
+      [11.67, 92.75]   // Iswarer Bagan (Andaman & Nicobar Islands)
+    ];
+
+    // Add polyline
+    var polyline = L.polyline(path, {color: 'red'}).addTo(map);
+
+    // Zoom the map to the polyline
+    map.fitBounds(polyline.getBounds());
+
+    // Add story popups at each step
+    var points = [
+      {
+        coords: [23.55, 90.32],
+        label: "Bikrampur, East Bengal",
+        text: "Haripada’s peaceful life as a teacher begins here."
+      },
+      {
+        coords: [22.57, 88.36],
+        label: "Sealdah Camp, Kolkata",
+        text: "Fleeing riots, Haripada arrives at the refugee camp."
+      },
+      {
+        coords: [23.38, 88.62],
+        label: "Makeshift School",
+        text: "Tries to rebuild a life through teaching in temporary settlements."
+      },
+      {
+        coords: [22.00, 88.50],
+        label: "Forest Settlement",
+        text: "Settles briefly in the Sundarbans region."
+      },
+      {
+        coords: [21.5, 87.5],
+        label: "Wandering (Displacement)",
+        text: "Multiple displacements across Bengal's forest borders."
+      },
+      {
+        coords: [11.67, 92.75],
+        label: "Iswarer Bagan (Andaman)",
+        text: "Final symbolic space of peace and belonging."
+      }
+    ];
+
+    points.forEach(function(point) {
+      L.marker(point.coords).addTo(map)
+        .bindPopup("<b>" + point.label + "</b><br/>" + point.text);
+    });
+
+  </script>
+</body>
+</html>
