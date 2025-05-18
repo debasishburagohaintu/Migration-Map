@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Noto Sans Bengali', 'Hind Siliguri', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  //font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background-color: #003366;
+  color: white;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Noto Sans Bengali', 'Hind Siliguri', sans-serif;
+}
+header h1 {
+  font-size: 1.5em;
+}
+nav {
+  margin-top: 0.5em;
+}
+nav a {
+  margin: 0 1em;
+  color: white;
+  text-decoration: none;
+  font-size: 1em;
+}
+#map {
+  height: 75vh;
+  width: 100%;
+}
+main, section {
+  padding: 1em;
+  line-height: 1.6;
+  flex: 1;
+}
+footer {
+  background-color: #f2f2f2;
+  padding: 1em;
+  text-align: center;
+  font-size: 0.9em;
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: sans-serif;
+}
+footer img {
+  height: 30px;
+  margin-bottom: 0.5em;
+}
+@media (min-width: 600px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em 2em;
+  }
+  nav {
+    margin-top: 0;
+  }
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 1em;
+  padding: 0.6em 1.2em;
+  background-color: #003366;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.95em;
+  transition: background-color 0.3s ease;
+}
+.back-button:hover {
+  background-color: #002244;
+}
